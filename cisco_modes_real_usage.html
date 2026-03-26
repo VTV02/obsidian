@@ -1,0 +1,117 @@
+
+<style>
+.mode-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 12px; }
+.mode-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.mode-badge { font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+.badge-gray { background: #F1EFE8; color: #5F5E5A; }
+.badge-blue { background: #E6F1FB; color: #185FA5; }
+.badge-teal { background: #E1F5EE; color: #0F6E56; }
+.badge-purple { background: #EEEDFE; color: #534AB7; }
+.mode-prompt { font-family: var(--font-mono); font-size: 13px; color: var(--color-text-secondary); background: var(--color-background-secondary); padding: 3px 8px; border-radius: 4px; }
+.mode-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); }
+.cmd-list { display: flex; flex-direction: column; gap: 6px; }
+.cmd-row { display: flex; align-items: flex-start; gap: 10px; }
+.cmd-code { font-family: var(--font-mono); font-size: 12px; background: var(--color-background-secondary); color: var(--color-text-primary); padding: 2px 8px; border-radius: 4px; white-space: nowrap; min-width: 200px; }
+.cmd-desc { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; padding-top: 2px; }
+.section-label { font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; margin-top: 2px; }
+.warn-box { background: var(--color-background-warning); border-left: 3px solid var(--color-border-warning); border-radius: 0; padding: 8px 12px; font-size: 13px; color: var(--color-text-warning); margin-top: 10px; }
+</style>
+
+<div style="padding: 1rem 0;">
+
+<div class="mode-card">
+  <div class="mode-header">
+    <span class="mode-badge badge-gray">Mode 1</span>
+    <span class="mode-title">User EXEC</span>
+    <span class="mode-prompt">Switch&gt;</span>
+  </div>
+  <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 10px;">Giống như "khách" — chỉ xem, không chỉnh được gì. Dùng để kiểm tra tình trạng cơ bản.</p>
+  <div class="section-label">Lệnh thường dùng</div>
+  <div class="cmd-list">
+    <div class="cmd-row"><span class="cmd-code">ping 192.168.1.1</span><span class="cmd-desc">Kiểm tra kết nối mạng tới một IP</span></div>
+    <div class="cmd-row"><span class="cmd-code">traceroute 8.8.8.8</span><span class="cmd-desc">Xem đường đi của gói tin</span></div>
+    <div class="cmd-row"><span class="cmd-code">show version</span><span class="cmd-desc">Xem phiên bản IOS và thông tin phần cứng</span></div>
+    <div class="cmd-row"><span class="cmd-code">logout / exit</span><span class="cmd-desc">Thoát khỏi thiết bị</span></div>
+  </div>
+  <div class="warn-box">Không thể xem cấu hình running-config, không thể đặt IP hay VLAN tại mode này.</div>
+</div>
+
+<div class="mode-card">
+  <div class="mode-header">
+    <span class="mode-badge badge-blue">Mode 2</span>
+    <span class="mode-title">Privileged EXEC</span>
+    <span class="mode-prompt">Switch#</span>
+  </div>
+  <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 10px;">Giống như "admin đọc toàn quyền" — xem mọi thứ, chạy lệnh chẩn đoán nâng cao, lưu/xóa cấu hình.</p>
+  <div class="section-label">Xem & chẩn đoán</div>
+  <div class="cmd-list">
+    <div class="cmd-row"><span class="cmd-code">show running-config</span><span class="cmd-desc">Xem toàn bộ cấu hình đang chạy</span></div>
+    <div class="cmd-row"><span class="cmd-code">show ip interface brief</span><span class="cmd-desc">Xem trạng thái tất cả interface (up/down, IP)</span></div>
+    <div class="cmd-row"><span class="cmd-code">show vlan brief</span><span class="cmd-desc">Xem danh sách VLAN và port gán</span></div>
+    <div class="cmd-row"><span class="cmd-code">show mac address-table</span><span class="cmd-desc">Xem bảng MAC — debug kết nối thiết bị</span></div>
+    <div class="cmd-row"><span class="cmd-code">show interfaces Fa0/1</span><span class="cmd-desc">Xem chi tiết 1 interface: lỗi, tốc độ, duplex</span></div>
+  </div>
+  <div class="section-label" style="margin-top:10px;">Lưu & quản lý cấu hình</div>
+  <div class="cmd-list">
+    <div class="cmd-row"><span class="cmd-code">copy running-config startup-config</span><span class="cmd-desc">Lưu cấu hình (bắt buộc sau khi config xong)</span></div>
+    <div class="cmd-row"><span class="cmd-code">copy running-config tftp</span><span class="cmd-desc">Backup cấu hình ra server TFTP</span></div>
+    <div class="cmd-row"><span class="cmd-code">erase startup-config</span><span class="cmd-desc">Xóa sạch cấu hình — reset về mặc định</span></div>
+    <div class="cmd-row"><span class="cmd-code">reload</span><span class="cmd-desc">Khởi động lại thiết bị</span></div>
+    <div class="cmd-row"><span class="cmd-code">debug ip ospf events</span><span class="cmd-desc">Bật debug real-time để troubleshoot giao thức</span></div>
+  </div>
+</div>
+
+<div class="mode-card">
+  <div class="mode-header">
+    <span class="mode-badge badge-teal">Mode 3</span>
+    <span class="mode-title">Global Configuration</span>
+    <span class="mode-prompt">Switch(config)#</span>
+  </div>
+  <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 10px;">Nơi cấu hình toàn hệ thống — tên thiết bị, bảo mật, routing, VLAN, banner đăng nhập.</p>
+  <div class="cmd-list">
+    <div class="cmd-row"><span class="cmd-code">hostname Core-SW1</span><span class="cmd-desc">Đặt tên thiết bị</span></div>
+    <div class="cmd-row"><span class="cmd-code">enable secret Cisco@123</span><span class="cmd-desc">Đặt mật khẩu enable (mã hóa MD5)</span></div>
+    <div class="cmd-row"><span class="cmd-code">service password-encryption</span><span class="cmd-desc">Mã hóa tất cả mật khẩu trong config</span></div>
+    <div class="cmd-row"><span class="cmd-code">ip routing</span><span class="cmd-desc">Bật tính năng routing (Layer 3 switch)</span></div>
+    <div class="cmd-row"><span class="cmd-code">vlan 10</span><span class="cmd-desc">Tạo VLAN 10 (rồi đặt tên bên trong)</span></div>
+    <div class="cmd-row"><span class="cmd-code">banner motd # Canh bao! #</span><span class="cmd-desc">Hiển thị thông báo khi ai đó login vào</span></div>
+    <div class="cmd-row"><span class="cmd-code">no ip domain-lookup</span><span class="cmd-desc">Tắt tra cứu DNS — tránh delay khi gõ nhầm</span></div>
+  </div>
+</div>
+
+<div class="mode-card">
+  <div class="mode-header">
+    <span class="mode-badge badge-purple">Mode 4</span>
+    <span class="mode-title">Sub-configuration</span>
+    <span class="mode-prompt">(config-if)# / (config-line)# / (config-router)#</span>
+  </div>
+  <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 10px;">Cấu hình chi tiết từng thành phần: cổng mạng, đường truy cập (console/telnet/SSH), giao thức định tuyến.</p>
+
+  <div class="section-label">Interface — cấu hình cổng vật lý / VLAN SVI</div>
+  <div class="cmd-list">
+    <div class="cmd-row"><span class="cmd-code">interface FastEthernet0/1</span><span class="cmd-desc">Vào cổng Fa0/1</span></div>
+    <div class="cmd-row"><span class="cmd-code">ip address 192.168.1.1 255.255.255.0</span><span class="cmd-desc">Gán IP cho interface (Layer 3)</span></div>
+    <div class="cmd-row"><span class="cmd-code">switchport mode access / trunk</span><span class="cmd-desc">Chế độ access (1 VLAN) hoặc trunk (nhiều VLAN)</span></div>
+    <div class="cmd-row"><span class="cmd-code">switchport access vlan 10</span><span class="cmd-desc">Gán cổng vào VLAN 10</span></div>
+    <div class="cmd-row"><span class="cmd-code">no shutdown</span><span class="cmd-desc">Bật cổng (mặc định cổng bị shutdown)</span></div>
+    <div class="cmd-row"><span class="cmd-code">duplex full / speed 100</span><span class="cmd-desc">Cấu hình tốc độ và duplex thủ công</span></div>
+  </div>
+
+  <div class="section-label" style="margin-top:10px;">Line — bảo mật đường truy cập</div>
+  <div class="cmd-list">
+    <div class="cmd-row"><span class="cmd-code">line console 0</span><span class="cmd-desc">Vào cấu hình cổng console (dây cắm trực tiếp)</span></div>
+    <div class="cmd-row"><span class="cmd-code">line vty 0 4</span><span class="cmd-desc">Vào cấu hình Telnet/SSH (5 session đồng thời)</span></div>
+    <div class="cmd-row"><span class="cmd-code">password cisco123 / login</span><span class="cmd-desc">Đặt mật khẩu cho đường vty/console</span></div>
+    <div class="cmd-row"><span class="cmd-code">transport input ssh</span><span class="cmd-desc">Chỉ cho phép SSH, chặn Telnet (plain text)</span></div>
+    <div class="cmd-row"><span class="cmd-code">exec-timeout 5 0</span><span class="cmd-desc">Tự logout sau 5 phút không hoạt động</span></div>
+  </div>
+
+  <div class="section-label" style="margin-top:10px;">Router — cấu hình định tuyến</div>
+  <div class="cmd-list">
+    <div class="cmd-row"><span class="cmd-code">router ospf 1</span><span class="cmd-desc">Bật OSPF process 1</span></div>
+    <div class="cmd-row"><span class="cmd-code">network 10.0.0.0 0.0.0.255 area 0</span><span class="cmd-desc">Khai báo mạng tham gia OSPF</span></div>
+    <div class="cmd-row"><span class="cmd-code">router rip / version 2</span><span class="cmd-desc">Bật giao thức định tuyến RIP v2</span></div>
+  </div>
+</div>
+
+</div>
