@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#Quản",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,7 +74,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -186,19 +187,19 @@
   },
   "active": "e1eba1a3823917e5",
   "lastOpenFiles": [
-    "Pasted image 20260331192714.png",
-    "Pasted image 20260331192612.png",
-    "Pasted image 20260331192409.png",
-    "Pasted image 20260331192343.png",
-    "Pasted image 20260331192323.png",
-    "Pasted image 20260331192300.png",
-    "Pasted image 20260331192202.png",
-    "Pasted image 20260331161056.png",
-    "Pasted image 20260331161043.png",
-    "Pasted image 20260331161031.png",
-    "Pasted image 20260331160749.png",
-    "Linux/Quản lý file và thư mục.md",
+    "Pasted image 20260403165056.png",
+    "Pasted image 20260403142117.png",
+    "Pasted image 20260403142010.png",
+    "Pasted image 20260403141942.png",
+    "Pasted image 20260403141924.png",
+    "Pasted image 20260403134156.png",
+    "Pasted image 20260403133702.png",
+    "Pasted image 20260403133356.png",
+    "Pasted image 20260403133252.png",
+    "Pasted image 20260403133214.png",
+    "Pasted image 20260403133120.png",
     "LPIC/ESSENSTIALS/Tổng quan lịch sử và triể lý của Linux.md",
+    "Linux/Quản lý file và thư mục.md",
     "LPIC/Untitled/desktop.ini",
     "LPIC/ESSENSTIALS",
     "LPIC",
